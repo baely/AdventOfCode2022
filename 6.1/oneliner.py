@@ -1,1 +1,1 @@
-from collections import Counter as C;print([f:=(C({k:(f[k+1]if k not in(6,8)else(f[0]+f[7]if k==6else f[0]))for k in range(9)})if i>0else C(list(map(int,open("input.txt").readline().split(",")))))for i in range(81)][-1].total())
+from collections import Counter as C;print([f:=(C({k:(p[k]if k in(p:={6:f[0]+f[7],8:f[0]})else f[k+1])for k in range(9)})if i>0else C(list(map(int,open("input.txt").readline().split(",")))))for i in range(81)][-1].total())
