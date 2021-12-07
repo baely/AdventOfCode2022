@@ -1,1 +1,1 @@
-import collections as c;[f:=c.Counter({k:f[(k+1)%9]for k in range(9)}|{6:f[0]+f[7]}if i else map(int,open("input.txt").read().split(",")))for i in range(81)];print(f.total())
+f=[0]*9;[f:=f[:g]+[f[g]+1]+f[g+1:]for g in map(int,open("input.txt").read().split(","))];[(f:=f[1:]+f[:1],m:=f.pop(6),f.insert(6,m+f[7])) for _ in range(80)];print(sum(f))
