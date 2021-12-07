@@ -1,1 +1,1 @@
-f=[0]*9;[f:=f[:g]+[f[g]+1]+f[g+1:]for g in map(int,open("input.txt").read().split(","))];[(f:=f[1:]+f[:1],m:=f.pop(6),f.insert(6,m+f[7])) for _ in range(80)];print(sum(f))
+f=[0]*9;[f:=f[:g]+[f[g]+1]+f[g+1:]for g in map(int,open("input.txt").read().split(","))];[(f:=f[1:]+f[:1],f.insert(6,f.pop(6)+f[7]))for _ in range(80)];print(sum(f))
