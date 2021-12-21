@@ -60,7 +60,7 @@ while sum(game_states.values()) > 0:
             game_over = False
             for player, (player_pos, player_score) in enumerate(new_state):
                 if player_score >= 21:
-                    player_wins[player] += count
+                    player_wins[player] += int(count / (len(all_rolls))**(n_players - player - 1))
                     game_over = True
                     break
 
@@ -69,5 +69,4 @@ while sum(game_states.values()) > 0:
 
     game_states = new_game_states
 
-print(max(player_wins) / 27)
-# I cannot work out why the winning score is 27 times too large but the losing score is accurate
+print(max(player_wins))
