@@ -1,15 +1,16 @@
-measurements = []
+lines = []
+
+running_total = 0
 
 with open("input.txt") as f:
     for line in f.readlines():
-        measurements.append(int(line))
+        if line == "":
+            lines.append(running_total)
+            running_total = 0
+        else:
+            n = int(line)
+            running_total += n
 
-increasing = 0
+lines.append(running_total)
 
-for i, measurement in enumerate(measurements):
-    if not i:
-        continue
-    if measurement > measurements[i-1]:
-        increasing += 1
-
-print(increasing)
+print(max(lines))

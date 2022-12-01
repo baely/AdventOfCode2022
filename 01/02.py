@@ -1,18 +1,18 @@
-ROLLING_AVERAGE_WINDOW = 3
+lines = []
 
-measurements = []
+running_total = 0
 
 with open("input.txt") as f:
     for line in f.readlines():
-        measurements.append(int(line))
+        if line == "\n":
+            lines.append(running_total)
+            running_total = 0
+        else:
+            n = int(line)
+            running_total += n
 
-increasing = 0
+lines.append(running_total)
 
-for i, measurement in enumerate(measurements):
-    if i < ROLLING_AVERAGE_WINDOW:
-        continue
+lines.sort(reverse=True)
 
-    if measurement > measurements[i - ROLLING_AVERAGE_WINDOW]:
-        increasing += 1
-
-print(increasing)
+print(sum(lines[0:min(3, len(lines))]))
