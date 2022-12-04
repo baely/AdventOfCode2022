@@ -12,7 +12,6 @@ with open("input.txt") as f:
         c = set(f.readline()[:-1])
 
         for d in (a & b & c):
-            print(d, ord(d) - letter_a + 1)
             p = ord(d) - letter_a + 1 if d == d.lower() else ord(d) - letter_A + 27
             priority += p
 
